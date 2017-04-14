@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0417FA721D098F880036DC52 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417FA711D098F880036DC52 /* Foundation+Log.m */; };
 		0476A22D1D085A7E0080AD0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0476A22C1D085A7E0080AD0A /* main.m */; };
 		0476A2301D085A7E0080AD0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0476A22F1D085A7E0080AD0A /* AppDelegate.m */; };
 		0476A2331D085A7E0080AD0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0476A2321D085A7E0080AD0A /* ViewController.m */; };
 		0476A2361D085A7E0080AD0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476A2341D085A7E0080AD0A /* Main.storyboard */; };
 		0476A2381D085A7E0080AD0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0476A2371D085A7E0080AD0A /* Assets.xcassets */; };
 		0476A23B1D085A7E0080AD0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476A2391D085A7E0080AD0A /* LaunchScreen.storyboard */; };
+		0476A2431D086B4E0080AD0A /* buyao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0476A2421D086B4E0080AD0A /* buyao.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0417FA711D098F880036DC52 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		0476A2281D085A7E0080AD0A /* PushNotifacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotifacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476A22C1D085A7E0080AD0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0476A22E1D085A7E0080AD0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		0476A2371D085A7E0080AD0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0476A23A1D085A7E0080AD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0476A23C1D085A7E0080AD0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0476A2421D086B4E0080AD0A /* buyao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buyao.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +62,12 @@
 		0476A22A1D085A7E0080AD0A /* PushNotifacation */ = {
 			isa = PBXGroup;
 			children = (
+				0417FA711D098F880036DC52 /* Foundation+Log.m */,
 				0476A22E1D085A7E0080AD0A /* AppDelegate.h */,
 				0476A22F1D085A7E0080AD0A /* AppDelegate.m */,
 				0476A2311D085A7E0080AD0A /* ViewController.h */,
 				0476A2321D085A7E0080AD0A /* ViewController.m */,
 				0476A2341D085A7E0080AD0A /* Main.storyboard */,
-				0476A2371D085A7E0080AD0A /* Assets.xcassets */,
-				0476A2391D085A7E0080AD0A /* LaunchScreen.storyboard */,
-				0476A23C1D085A7E0080AD0A /* Info.plist */,
 				0476A22B1D085A7E0080AD0A /* Supporting Files */,
 			);
 			path = PushNotifacation;
@@ -74,6 +76,10 @@
 		0476A22B1D085A7E0080AD0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0476A2421D086B4E0080AD0A /* buyao.wav */,
+				0476A2371D085A7E0080AD0A /* Assets.xcassets */,
+				0476A2391D085A7E0080AD0A /* LaunchScreen.storyboard */,
+				0476A23C1D085A7E0080AD0A /* Info.plist */,
 				0476A22C1D085A7E0080AD0A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -137,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0476A23B1D085A7E0080AD0A /* LaunchScreen.storyboard in Resources */,
+				0476A2431D086B4E0080AD0A /* buyao.wav in Resources */,
 				0476A2381D085A7E0080AD0A /* Assets.xcassets in Resources */,
 				0476A2361D085A7E0080AD0A /* Main.storyboard in Resources */,
 			);
@@ -152,6 +159,7 @@
 				0476A2331D085A7E0080AD0A /* ViewController.m in Sources */,
 				0476A2301D085A7E0080AD0A /* AppDelegate.m in Sources */,
 				0476A22D1D085A7E0080AD0A /* main.m in Sources */,
+				0417FA721D098F880036DC52 /* Foundation+Log.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +306,7 @@
 				0476A2411D085A7E0080AD0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

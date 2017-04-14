@@ -14,32 +14,62 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self registerNotifa]; // 注册通知
+    
+    if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]) { // 用户通过通知(App未运行,已经杀死)打开程序,这里通过 Badge 就可以观察到
+        application.applicationIconBadgeNumber=10;
+        UILocalNotification *myLocalNotifa=launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]; // 返回的是本地通知的对象
+        NSDictionary *dicValue=myLocalNotifa.userInfo;
+        NSString *detailMess=dicValue[@"detailMess"];
+        self.myMess=[NSString stringWithFormat:@"%@(通过通知(App未运行,已经杀死)打开程序,这里是具体的通知信息详情)",detailMess];
+    }
+    else{  // 用户通过App的图片打开的程序
+        NSLog(@"用户通过App的图标打开程序");
+        application.applicationIconBadgeNumber=0;
+    
+    }
     return YES;
 }
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+#pragma mark 注册用户通知
+-(void)registerNotifa{
+    // 因为这里系统大于IOS 8.0,所有不需要考虑IOS 8.0 以下
+    
+    UIUserNotificationType notifaType=UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge;
+    UIUserNotificationSettings *userNotifi=[UIUserNotificationSettings settingsForTypes:notifaType categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:userNotifi];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+#pragma mark -通知有关的代理方法
+/** App在后台,程序未被杀死,用户点击了本地通知后的操作 */
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    
+    // 一定要判断App是否在后台
+    if (!(application.applicationState==UIApplicationStateActive)) { // App在后台且用户点击了通知后的操作)
+        application.applicationIconBadgeNumber=0;
+        NSString *strValue=notification.userInfo[@"detailMess"]; // 这里的 userInfo 对应通知的设置信息 userInfo
+        self.myMess=[NSString stringWithFormat:@"%@(App在后台且用户点击了通知后,这里是具体的通知信息详情)",strValue];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"bgckMess" object:nil userInfo:nil];
+        NSLog(@"App还在后台,点击了本地通知后,进入这个方法.得到的本地其他信息:%@",notification.userInfo);
+    }
+    else{
+        NSLog(@"App在前台,不用做任何操作");
+    }
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
+#pragma mark -其他代理方法
+- (void)applicationWillResignActive:(UIApplication *)application {}
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
+- (void)applicationDidEnterBackground:(UIApplication *)application {}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {}
+
+- (void)applicationWillTerminate:(UIApplication *)application {}
 
 @end
